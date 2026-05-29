@@ -21,6 +21,11 @@ def get_human_age(cat_age: int, dog_age: int) -> list:
     reste_age = 0
     liste_convert_age = []
 
+    if (not isinstance(cat_age, int) or not isinstance(dog_age, int)):
+        raise TypeError
+    if (cat_age < 0 or dog_age < 0):
+        raise ValueError
+
     if cat_age >= 15:
         reste_age = cat_age - 15
         cat_age_human += 1
@@ -38,8 +43,6 @@ def get_human_age(cat_age: int, dog_age: int) -> list:
         if reste_age >= 9:
             reste_age -= 9
             dog_age_human += (1 + reste_age // 5)
-        else:
-            pass
     else:
         dog_age_human = 0
 
